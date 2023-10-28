@@ -1,10 +1,10 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View, Pressable} from 'react-native';
 import {colors} from '../../constants/colors';
 
 const CategoryProduct = () => {
   return (
-    <View style={styles.product}>
+    <Pressable style={({pressed})=>[styles.product, pressed && styles.productPressed]}>
       <View style={styles.productImg}>
         <Image style={styles.img} source={require('../images/test.jpg')} />
       </View>
@@ -22,7 +22,7 @@ const CategoryProduct = () => {
           ₹ 6,999
         </Text>
       </View>
-    </View>
+    </Pressable>
   );
 };
 
@@ -60,6 +60,9 @@ const styles = StyleSheet.create({
   title: {
     color: colors.textColor,
   },
+  productPressed:{
+    opacity: 0.4,
+  }
 });
 
 export default CategoryProduct;

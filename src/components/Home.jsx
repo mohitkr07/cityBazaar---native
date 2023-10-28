@@ -13,6 +13,15 @@ import {colors} from '../constants/colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Category from './cards/Category';
+import {SliderBox} from 'react-native-image-slider-box';
+import CategoryList from './cards/CategoryList';
+
+const images = [
+  require('./images/1.jpg'),
+  require('./images/2.jpg'),
+  require('./images/3.jpg'),
+  require('./images/4.jpg'),
+];
 
 const Home = () => {
   return (
@@ -29,8 +38,16 @@ const Home = () => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         style={styles.scrollView}>
-        <View style={styles.carousel}></View>
-        <ScrollView style={styles.categories}></ScrollView>
+        <View style={styles.carousel}>
+          <SliderBox
+            images={images}
+            sliderBoxHeight={180}
+            autoplay={true}
+            circleLoop={true}
+            autoplayInterval={10000}
+          />
+        </View>
+        <CategoryList />
         <View style={styles.recommendations}>
           <Category />
           <Category />
@@ -43,8 +60,8 @@ const Home = () => {
 
 const styles = StyleSheet.create({
   carousel: {
-    height: 150,
-    backgroundColor: 'blue',
+    height: 180,
+    width: '100%',
     marginTop: 5,
   },
   categories: {
@@ -52,8 +69,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'green',
     marginTop: 5,
   },
-  recommendations: {
-  },
+  recommendations: {},
   home: {
     width: '100%',
     height: '100%',

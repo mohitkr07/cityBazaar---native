@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
 import CategoryProduct from './CategoryProduct';
 import {colors} from '../../constants/colors';
 
@@ -13,7 +13,7 @@ const Category = () => {
         style={styles.flatlist}
         horizontal={true}
         data={data}
-        renderItem={({item}) => <CategoryProduct item={item} />}
+        renderItem={({item}) => <CategoryProduct />}
       />
     </View>
   );
@@ -38,9 +38,10 @@ const styles = StyleSheet.create({
   categoryTitle: {
     fontSize: 17,
     marginLeft: 5,
+    marginBottom: 2,
     color: colors.textColor,
     fontWeight: 'bold',
-    
+
   },
 });
 
